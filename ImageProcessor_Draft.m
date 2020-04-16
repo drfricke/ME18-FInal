@@ -41,7 +41,7 @@ end
 
 %gets some info
 stats = regionprops('table', L,'Centroid','MajorAxisLength','MinorAxisLength','Eccentricity','Circularity')
-
+Elongation = stats.MinorAxisLength/stats.MajorAxisLength
 
 %makes ideal circle from parameters
 centers = stats.Centroid;
@@ -51,4 +51,5 @@ radii = diameters/2;
 hold on
 viscircles(centers,radii);
 hold off
+
 
