@@ -27,18 +27,28 @@ for filenow=1:length(filelist) %number of files
     %Plot
     figure(filenow);
 
-    subplot(2,1,1);
-    hold on
+    subplot(3,2,1);
     plot(time,thetaElb);
     title(strcat("Elbow Degrees vs Time - file",filelist(filenow).name))
     xlabel('Time (ms)') 
     ylabel('Degrees')
-    hold off
 
-    subplot(2,1,2);
-    hold on
+    subplot(3,2,2);
     plot(time,thetaSh);
     title(strcat("Shoulder Degrees vs Time - file",filelist(filenow).name))
     xlabel('Time (ms)') 
     ylabel('Degrees')
+    
+    subplot(3,2,3);
+    plot(xHand,yHand)
+    axis equal
+    title('Hand Coordinates')
+    xlabel('X')
+    ylabel('Y')
+    
+    subplot(3,2,4)
+    
+    subplot(3,2,5)
+    
+    subplot(3,2,6)
 end
