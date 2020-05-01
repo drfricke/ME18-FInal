@@ -28,17 +28,17 @@ for filenow = 1:length(filelist) %number of files
 %isolate one period
     [pksElb,locs] = findpeaks(thetaElb);
     
-    periodElb = thetaElb(locs(1):locs(2));
-    periodSh  = thetaSh(locs(1):locs(2));
-    timeNew   = time(locs(1):locs(2));
+%    periodElb = thetaElb(locs(1):locs(2));
+%    periodSh  = thetaSh(locs(1):locs(2));
+%    timeNew   = time(locs(1):locs(2));
 
 %Convert to real coordinates
     xHand = l1 * cosd(thetaSh) + l2 * cosd((180-thetaElb)+thetaSh);
     yHand = l1 * sind(thetaSh) + l2 * sind((180-thetaElb)+thetaSh);
 
 %Coordinates for one period
-    xHandPer = l1 * cosd(periodSh) + l2 * cosd((180-periodElb)+periodSh);
-    yHandPer = l1 * sind(periodSh) + l2 * sind((180-periodElb)+periodSh);
+%    xHandPer = l1 * cosd(periodSh) + l2 * cosd((180-periodElb)+periodSh);
+%    yHandPer = l1 * sind(periodSh) + l2 * sind((180-periodElb)+periodSh);
     
 %Plot data
     figure(filenow);
@@ -62,22 +62,22 @@ for filenow = 1:length(filelist) %number of files
     xlabel('X')
     ylabel('Y')
     
-    subplot(3,2,2)
-    plot(timeNew, periodElb)
-    title("Single Period, Elbow Degrees vs Time")
-    xlabel('Time (ms)') 
-    ylabel('Degrees')
-    
-    subplot(3,2,4)
-    plot(timeNew, periodSh)
-    title("Single Period, Shoulder Degrees vs Time")
-    xlabel('Time (ms)') 
-    ylabel('Degrees')
-    
-    subplot(3,2,6)
-    plot(xHandPer,yHandPer)
-    axis equal
-    title('Single Period, Hand Coordinates')
-    xlabel('X')
-    ylabel('Y')
+%     subplot(3,2,2)
+%     plot(timeNew, periodElb)
+%     title("Single Period, Elbow Degrees vs Time")
+%     xlabel('Time (ms)') 
+%     ylabel('Degrees')
+%     
+%     subplot(3,2,4)
+%     plot(timeNew, periodSh)
+%     title("Single Period, Shoulder Degrees vs Time")
+%     xlabel('Time (ms)') 
+%     ylabel('Degrees')
+%     
+%     subplot(3,2,6)
+%     plot(xHandPer,yHandPer)
+%     axis equal
+%     title('Single Period, Hand Coordinates')
+%     xlabel('X')
+%     ylabel('Y')
 end
