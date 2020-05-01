@@ -1,31 +1,38 @@
+%% Single Data Set Inverse Kinematic Modeling
+%  Last edited: May 1st, 2020
+%  ME 18 Final Project
+%  Libby Albanese and David Fricke
+
+%% Initialize
 close all
 clear
 
-l1 = .3301; %meters
-l2 = .3429; %meters
+l1 = .3301; %Length of lower segment, meters
+l2 = .3429; %Length of upper segment, meters
 
-data=load('Test.csv'); %runs through each file
+%% Load and Assign Data
+data=load('Shoulder.csv');
 
-thetaElb = data(:,2); %degrees
-thetaSh  = data(:,1); %degrees
-time     = data(:,4); %seconds 
+thetaElb = data(:,2); %Elbow angles, degrees
+thetaSh  = data(:,1); %Shoulder angles, degrees
+time     = data(:,4); %time, seconds 
 
-%isolate one period
+%% Isolate one period
 [pksElb,locs] = findpeaks(thetaElb);
 
-periodElb = thetaElb(locs(1):locs(2));
-periodSh  = thetaSh(locs(1):locs(2));
-timeNew   = time(locs(1):locs(2));
+periodElb = thetaElb(locs(1):locs(2)); % Elbow, degrees
+periodSh  = thetaSh(locs(1):locs(2));  % Shoulder angle, degrees
+timeNew   = time(locs(1):locs(2));     % time, seconds
 
-%Convert to real coordinates
-xHand = l1 * cosd(thetaSh) + l2 * cosd((180-thetaElb)+thetaSh);
-yHand = l1 * sind(thetaSh) + l2 * sind((180-thetaElb)+thetaSh);
+%% Convert to real coordinates
+xHand = l1 * cosd(thetaSh) + l2 * cosd((180-thetaElb)+thetaSh); %meters
+yHand = l1 * sind(thetaSh) + l2 * sind((180-thetaElb)+thetaSh); %meters
 
-%Coordinates for one period
-xHandPer = l1 * cosd(periodSh) + l2 * cosd((180-periodElb)+periodSh);
-yHandPer = l1 * sind(periodSh) + l2 * sind((180-periodElb)+periodSh);
+%% Coordinates for one period
+xHandPer = l1 * cosd(periodSh) + l2 * cosd((180-periodElb)+periodSh); %meters
+yHandPer = l1 * sind(periodSh) + l2 * sind((180-periodElb)+periodSh); %meters
 
-%Plot
+%% Plot
 figure(1);
 
 subplot(3,2,1);
