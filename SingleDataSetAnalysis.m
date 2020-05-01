@@ -4,7 +4,7 @@ clear
 l1 = .3301; %meters
 l2 = .3429; %meters
 
-data=load('fastS60E90T3.csv'); %runs through each file
+data=load('Test.csv'); %runs through each file
 
 thetaElb = data(:,2); %degrees
 thetaSh  = data(:,1); %degrees
@@ -28,28 +28,40 @@ yHandPer = l1 * sind(periodSh) + l2 * sind((180-periodElb)+periodSh);
 %Plot
 figure(1);
 
-subplot(2,1,1);
+subplot(3,2,1);
 plot(time,thetaElb);
 title(strcat("Elbow Degrees vs Time"))
 xlabel('Time (ms)') 
 ylabel('Degrees')
 
-subplot(2,1,2);
+subplot(3,2,3);
 plot(time,thetaSh);
-title(strcat("Shoulder Degrees vs Time"))
+title("Shoulder Degrees vs Time")
 xlabel('Time (ms)') 
 ylabel('Degrees')
 
-figure(2)
+subplot(3,2,5);
 plot(xHand,yHand)
 axis equal
+title('Hand Coordinates')
+xlabel('X')
+ylabel('Y')
 
-figure(3)
-subplot(2,1,1)
-plot(timeNew,periodElb)
-subplot(2,1,2)
-plot(timeNew,periodSh)
+subplot(3,2,2)
+plot(timeNew, periodElb)
+title("Single Period, Elbow Degrees vs Time")
+xlabel('Time (ms)') 
+ylabel('Degrees')
 
-figure(4)
+subplot(3,2,4)
+plot(timeNew, periodSh)
+title("Single Period, Shoulder Degrees vs Time")
+xlabel('Time (ms)') 
+ylabel('Degrees')
+
+subplot(3,2,6)
 plot(xHandPer,yHandPer)
 axis equal
+title('Single Period, Hand Coordinates')
+xlabel('X')
+ylabel('Y')
