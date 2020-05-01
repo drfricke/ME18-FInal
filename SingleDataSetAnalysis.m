@@ -7,8 +7,8 @@
 close all
 clear
 
-l1 = .3301; %Length of lower segment, meters
-l2 = .3429; %Length of upper segment, meters
+l1 = .2635; %Length of upper segment, meters
+l2 = .3429; %Length of lower segment, meters
 
 %% Load and Assign Data
 data=load('Test1.csv');
