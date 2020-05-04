@@ -11,7 +11,7 @@ l1 = .2635; %Length of upper segment, meters
 l2 = .3429; %Length of lower segment, meters
 
 %% Load and Assign Data
-data=load('Test1.csv');
+data=load('slowS60E90T1.csv');
 
 thetaElb = data(:,2); %Elbow angles, degrees
 thetaSh  = data(:,1); %Shoulder angles, degrees
