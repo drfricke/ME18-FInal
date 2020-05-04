@@ -1,4 +1,4 @@
-%% Inverse Kinematic Modeling
+%% Forward Kinematic Modeling
 %  Last edited: May 1st, 2020
 %  ME 18 Final Project
 %  Libby Albanese and David Fricke
