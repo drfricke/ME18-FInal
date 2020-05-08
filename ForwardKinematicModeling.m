@@ -1,4 +1,4 @@
-%% Inverse Kinematic Modeling
+%% Forward Kinematic Modeling
 %  Last edited: May 1st, 2020
 %  ME 18 Final Project
 %  Libby Albanese and David Fricke
@@ -11,7 +11,7 @@ l1 = .2635; %Length of upper segment, meters
 l2 = .3429; %Length of lower segment, meters
  
 %Collect csv in active directory
-filelist=dir('DL*.csv');
+filelist=dir('slow*.csv');
     %csv naming convention
     %Subject's speed:Shoulder starting angle:Elbow Starting angle:Trial number
     %ex. fastS60S90T1
